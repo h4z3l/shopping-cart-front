@@ -1,0 +1,19 @@
+<div class="card" *ngIf='items'>
+  <div class="card-header">
+      <i class="fa fa-shopping-cart"></i> Cart
+  </div>
+  <div class="card-body">
+      <ul class="items" *ngIf='items.length'>
+          <app-cart-item [item]='item' *ngFor='let item of items'></app-cart-item>
+      </ul>
+      <div class="row" *ngIf='!items.length'>
+          <div class="col text-center">
+              No Items Yet
+          </div>
+      </div>
+  </div>
+  <div class="card-footer">
+      <span>Total Price: {{total | currency:'USD':'symbol'}}</span>
+      <a [routerLink]="['/checkout']" *ngIf='items.length' class="btn btn-success float-right">Checkout</a>
+  </div>
+</div>

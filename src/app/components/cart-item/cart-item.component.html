@@ -1,0 +1,18 @@
+<div class="row cart-item">
+  <div class="col-2">
+      <img [src]='item.product.imageUrl' class="img-fluid">
+  </div>
+  <div class="col-6">
+      <h4>{{item.product.name}}</h4>
+      <p>{{item.product.description}}</p>
+      <strong>{{item.product.price | currency:'USD':'symbol'}} x {{item.quantity}}</strong>
+  </div>
+  <div class="col-4">
+      <div class="input-group">
+          <input type="number" [(ngModel)]='item.quantity' (click)='update()' min='0' class="col-4 form-control">
+          <span class="input-group-btn">
+              <button class="btn btn-primary" (click)='removeFromCart(item)'>Remove</button>
+          </span>
+      </div>
+  </div>
+</div>

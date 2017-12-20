@@ -1,0 +1,9 @@
+<div class="product-list" *ngIf='products'>
+  <div class="row" *ngFor='let prods of products | split:3'>
+    <app-product-summary [product]='product' *ngFor='let product of prods' class="col-md-4"></app-product-summary>
+  </div>
+</div>
+
+<div class="product-list text-center" *ngIf='!products || !products.length'>
+  <h2>No Products Found</h2>
+</div>

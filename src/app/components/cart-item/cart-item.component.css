@@ -1,0 +1,17 @@
+.cart-item {
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #eed;
+    height: 150px;
+    overflow: hidden;
+}
+
+.cart-item .actions input[name="quantity"],
+.cart-item .actions .btn.btn-sm.btn-danger {
+    display: inline-block;
+    margin: auto 0;
+}
+
+.cart-item .actions input[name="quantity"] {
+    width: 100px;
+}

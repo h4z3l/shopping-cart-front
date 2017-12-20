@@ -1,3 +1,30 @@
-<p>
-  home works!
-</p>
+<div class="row justify-content-center banner">
+  <div class="col">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item" [ngClass]="{ active: i === 0}" *ngFor='let slide of slides; index as i'>
+          <img class="d-block w-100" [src]='slide'>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf='categories'>
+  <div class="row category-row" *ngFor='let categoryrow of categories | split:3'>
+    <div class="col-4" *ngFor='let category of categoryrow'>
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">{{category.name | capitalize }}</h4>
+          <h6 class="card-subtitle mb-2 text-muted">{{category.subName}}</h6>
+          <p class="card-text">{{category.description}}</p>
+          <a [routerLink]="['/category', category.id]" class="card-link">Explore</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="text-center" *ngIf='!categories'>
+  <h4>No Categories Found.</h4>
+</div>

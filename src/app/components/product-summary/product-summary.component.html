@@ -1,0 +1,17 @@
+<div class="card product">
+  <div class="card-img">
+      <img [src]='product.imageUrl' class="img-fluid" alt="Card image cap">
+  </div>
+  <div class="card-body">
+      <h4 class="card-title">{{product.name}}</h4>
+      <p class="card-text">{{product.description | trunc: 30}}</p>
+      <div class="row justify-content-center">
+          <div class="col-8">
+              <div class="btn-group" role="group" aria-label="Basic">
+                  <button class="btn btn-primary btn-sm" (click)='addToCart(product)'>Add to Cart</button>
+                  <a [routerLink]="['/product/', product.id]" class="btn btn-danger btn-sm">See Details</a>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
