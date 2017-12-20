@@ -20,6 +20,8 @@ import { SplitPipe } from './pipes/split.pipe';
 import { TruncatePipe } from './pipes/truncate.pipe';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
+import { SigninFormComponent } from './components/signin-form/signin-form.component';
+import { SignupFormComponent } from './components/signup-form/signup-form.component';
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import { CartItemComponent } from './components/cart-item/cart-item.component';
     SplitPipe,
     TruncatePipe,
     CapitalizePipe,
-    CartItemComponent
+    CartItemComponent,
+    SigninFormComponent,
+    SignupFormComponent
   ],
   imports: [
     BrowserModule,

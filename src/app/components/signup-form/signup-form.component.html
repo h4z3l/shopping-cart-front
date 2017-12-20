@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+  <div class="col-6">
+      <div class="card">
+          <div class="card-body">
+              <h4 class="card-title">New Account</h4>
+              <hr>
+              <form #f='ngForm' (ngSubmit)='register(f)'>
+                  <div class="alert alert-danger" *ngIf='f.submitted && f.invalid'>
+                      <div *ngIf='f.errors'>
+                          <div *ngIf='f.errors.registerFailed'>Unexpected error occured.</div>
+                      </div>
+                      <div *ngIf='f.controls.firstname.invalid'>
+                          <div *ngIf='f.controls.firstname.errors.required'>First Name is required.</div>
+                      </div>
+                      <div *ngIf='f.controls.lastname.invalid'>
+                          <div *ngIf='f.controls.lastname.errors.required'>Last Name is required.</div>
+                      </div>
+                      <div *ngIf='f.controls.email.invalid'>
+                          <div *ngIf='f.controls.email.errors.required'>Email is required.</div>
+                      </div>
+                      <div *ngIf='f.controls.password.invalid'>
+                          <div *ngIf='f.controls.password.errors.required'>Password is required.</div>
+                          <div *ngIf='f.controls.password.errors.minlength'>Password must be a minimum of {{f.controls.password.errors.minlength.requiredLength}} characters.</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="firstname">First Name</label>
+                      <input
+                      type="text"
+                      ngModel
+                      required
+                      name="firstname"
+                      id="firstname"
+                      class="form-control"
+                      aria-describedby="firstnameHelp"
+                      placeholder="Enter First Name">
+                  </div>
+                  <div class="form-group">
+                      <label for="lastname">Last Name</label>
+                      <input
+                      type="text"
+                      ngModel
+                      required
+                      name="lastname"
+                      id="lastname"
+                      class="form-control"
+                      aria-describedby="lastnameHelp"
+                      placeholder="Enter Last Name">
+                  </div>
+                  <div class="form-group">
+                      <label for="exampleInputEmail1">Email address</label>
+                      <input 
+                      type="email"
+                      ngModel
+                      required
+                      name="email"
+                      class="form-control"
+                      id="exampleInputEmail1"
+                      aria-describedby="emailHelp"
+                      placeholder="Enter email">
+                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                  </div>
+                  <div class="form-group">
+                      <label for="exampleInputPassword1">Password</label>
+                      <input type="password"
+                      ngModel
+                      required
+                      minlength="4"
+                      name="password"
+                      class="form-control"
+                      id="exampleInputPassword1"
+                      placeholder="Password">
+                  </div>
+                  <button type="submit" class="btn btn-primary float-right">Proceed</button>
+                  </form>
+          </div>
+      </div>
+  </div>
+</div>
