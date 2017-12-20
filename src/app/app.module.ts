@@ -22,6 +22,12 @@ import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { SigninFormComponent } from './components/signin-form/signin-form.component';
 import { SignupFormComponent } from './components/signup-form/signup-form.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { OrderHistoryComponent } from './components/order-history/order-history.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { TokenInterceptor } from './services/token.interceptor';
+import { OrderService } from './services/order.service';
 
 
 @NgModule({
@@ -39,7 +45,10 @@ import { SignupFormComponent } from './components/signup-form/signup-form.compon
     CapitalizePipe,
     CartItemComponent,
     SigninFormComponent,
-    SignupFormComponent
+    SignupFormComponent,
+    SettingsComponent,
+    CheckoutComponent,
+    OrderHistoryComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +59,13 @@ import { SignupFormComponent } from './components/signup-form/signup-form.compon
   providers: [
     AuthService,
     CartService,
-    ProductService
+    ProductService,
+    OrderService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
